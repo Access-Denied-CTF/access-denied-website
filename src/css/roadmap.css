@@ -1,0 +1,153 @@
+/* mini roadmap section */
+.roadmap-container {
+    max-width: 1200px;
+    margin: 3rem auto 0;
+    padding: 0 5%;
+}
+
+.roadmap-label {
+    font-weight: 900;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.5;
+    margin-bottom: 1rem;
+}
+
+.roadmap-grid {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+/* base mini card */
+.roadmap-card {
+    text-decoration: none;
+    flex: 1;
+    min-width: 140px;
+    border-radius: 12px;
+    padding: 1rem;
+    transition: transform 0.15s;
+    display: flex;
+    flex-direction: column;
+}
+
+.roadmap-card:hover {
+    transform: translateY(-3px);
+}
+
+.roadmap-card-phase {
+    font-weight: 900;
+    font-size: 0.7rem;
+    display: block;
+}
+
+.roadmap-card-title {
+    font-weight: 900;
+    font-size: 1.1rem;
+    line-height: 1.2;
+    margin-bottom: 0.4rem;
+}
+
+.roadmap-card-desc {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin-top: auto;
+}
+
+/* card 1 - certificate */
+.roadmap-card.phase-1 {
+    background: var(--red);
+    background-image: radial-gradient(circle at top right, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
+    color: white;
+    border: 2px solid var(--dark);
+    box-shadow: 3px 3px 0px var(--dark);
+}
+
+.roadmap-card.phase-1 .roadmap-card-phase {
+    opacity: 0.7;
+}
+
+.roadmap-card.phase-1 .roadmap-card-desc {
+    opacity: 0.9;
+}
+
+/* card 2 - hidden */
+.roadmap-card.phase-2 {
+    background: repeating-linear-gradient(-45deg, var(--dark), var(--dark) 6px, #3a0700 6px, #3a0700 12px);
+    color: white;
+    border: 2px dashed rgba(255, 255, 255, 0.2);
+    box-shadow: 3px 3px 0px var(--dark);
+    position: relative;
+    overflow: hidden;
+}
+
+.roadmap-card.phase-2::before {
+    content: '?';
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 4rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.04);
+    z-index: 0;
+}
+
+.roadmap-card.phase-2 .roadmap-card-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.roadmap-card.phase-2 .roadmap-card-phase {
+    opacity: 0.7;
+}
+
+.roadmap-card.phase-2 .roadmap-card-desc {
+    opacity: 0.8;
+}
+
+/* card 3 - domain */
+.roadmap-card.phase-3 {
+    background: linear-gradient(135deg, #f3f3f3, #fff);
+    color: #1d2445;
+    border: 2px solid #1d2445;
+    box-shadow: 3px 3px 0px #1d2445;
+}
+
+.roadmap-card.phase-3 .roadmap-card-phase {
+    opacity: 0.5;
+}
+
+.roadmap-card.phase-3 .roadmap-card-desc {
+    opacity: 0.8;
+}
+
+/* card 4 - cash */
+.roadmap-card.phase-4 {
+    background: #ffd043;
+    color: #1c2a38;
+    border: 2px solid #1c2a38;
+    box-shadow: 3px 3px 0px #1c2a38;
+}
+
+.roadmap-card.phase-4 .roadmap-card-phase {
+    opacity: 0.5;
+}
+
+.roadmap-card.phase-4 .roadmap-card-desc {
+    opacity: 0.8;
+}
+
+/* rules link */
+.roadmap-link {
+    display: inline-block;
+    margin-top: 0.8rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--red);
+    text-decoration: underline;
+}

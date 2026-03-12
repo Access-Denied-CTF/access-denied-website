@@ -1,0 +1,278 @@
+/* account page styles */
+.account-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    padding: 4rem 5% 6rem;
+    position: relative;
+    z-index: 10;
+}
+
+.account-container {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.account-card {
+    background-color: white;
+    border: 4px solid var(--dark);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 10px 10px 0px var(--dark);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.account-title {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--dark);
+    letter-spacing: -2px;
+    margin-bottom: 0.5rem;
+}
+
+/* block input override */
+.account-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.profile-top-section {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.avatar-section {
+    flex-shrink: 0;
+}
+
+.avatar-wrapper {
+    width: 120px;
+    height: 120px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    border: 3px solid var(--dark);
+    overflow: hidden;
+    background-color: #f0ebe6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+
+.avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+}
+
+.profile-inputs {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+@media (max-width: 600px) {
+    .profile-top-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-inputs {
+        width: 100%;
+    }
+}
+
+.form-label {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dark);
+}
+
+/* logout wrapper */
+.logout-wrapper {
+    grid-column: 1 / -1;
+}
+
+/* page loader overlay */
+.page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg);
+    z-index: 9998;
+}
+
+/* team member list */
+.team-members-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.team-members-list::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+}
+
+.team-members-list::-webkit-scrollbar-thumb {
+    background: var(--dark);
+    border-radius: 10px;
+}
+
+.team-member-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem;
+    border-radius: 12px;
+    background: #fdfbf8;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.team-member-row:hover {
+    transform: translateX(4px);
+    border-color: var(--dark);
+}
+
+.team-member-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid var(--dark);
+    background-color: var(--bg);
+    object-fit: cover;
+}
+
+.team-member-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.team-member-name {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--dark);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.team-member-email {
+    font-size: 0.85rem;
+    color: rgba(0, 0, 0, 0.6);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.team-badge {
+    font-size: 0.6rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    padding: 0.1rem 0.45rem;
+    border-radius: 20px;
+    background: var(--dark);
+    color: white;
+    letter-spacing: 0.5px;
+    vertical-align: middle;
+}
+
+/* phase progress bar */
+.progress-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.progress-bar-track {
+    position: relative;
+    height: 14px;
+    background: var(--bg);
+    border: 2px solid var(--dark);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--red), #ff6b6b);
+    border-radius: 8px;
+    transition: width 0.6s ease;
+    width: 0%;
+}
+
+/* phase dividers */
+.progress-marker {
+    position: absolute;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: var(--dark);
+    opacity: 0.3;
+}
+
+.progress-text {
+    font-size: 0.85rem;
+    color: var(--grey);
+    font-weight: 600;
+}
+
+/* solo progress note */
+.solo-progress-note {
+    font-size: 0.8rem;
+    color: var(--grey);
+    opacity: 0.7;
+    line-height: 1.4;
+    margin-top: 0.2rem;
+}
+
+/* team notes */
+.team-notes {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 1rem 1.2rem;
+    background: #fdfbf8;
+    border: 2px dashed var(--dark);
+    border-radius: 14px;
+    opacity: 0.8;
+}
+
+.team-notes p {
+    font-size: 0.82rem;
+    color: var(--dark);
+    line-height: 1.5;
+    margin: 0;
+}
+
+@media (max-width: 480px) {
+    .account-section {
+        padding: 2rem 5% 4rem;
+    }
+
+    .account-card {
+        padding: 2rem 1.5rem;
+    }
+}

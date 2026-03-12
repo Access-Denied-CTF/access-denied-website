@@ -1,0 +1,513 @@
+/* card container */
+.challenges-section {
+    padding: 3rem 0 2rem 0;
+    position: relative;
+    z-index: 10;
+    background-color: #ededed;
+    border-top: 3px dashed rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0 20px 40px rgba(0, 0, 0, 0.03);
+    overflow: hidden;
+}
+
+/* marker title */
+.section-title {
+    font-size: 3.2rem;
+    font-weight: 900;
+    color: var(--dark, #4c0900);
+    margin-bottom: 4.5rem;
+    text-align: center;
+    letter-spacing: -1.5px;
+    padding: 0 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.phase-highlight {
+    font-family: 'Permanent Marker', cursive;
+    color: var(--red, #da3533);
+    font-size: 4rem;
+    transform: rotate(-4deg) translateY(-4px);
+    display: inline-block;
+    text-transform: uppercase;
+    position: relative;
+    text-shadow: 2px 2px 0px rgba(218, 53, 51, 0.15);
+    letter-spacing: 2px;
+}
+
+/* marker underline */
+.phase-highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: -5%;
+    width: 110%;
+    height: 6px;
+    background-color: var(--red, #da3533);
+    border-radius: 10px;
+    transform: rotate(2deg);
+    opacity: 0.8;
+}
+
+/* carousel wrapper */
+.carousel-wrapper {
+    position: relative;
+    max-width: 1500px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+/* arrow navigation */
+.nav-btn-phases {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 65px;
+    height: 65px;
+    background: white;
+    border: 3px solid var(--dark, #4c0900);
+    border-radius: 50%;
+    color: var(--dark, #4c0900);
+    cursor: pointer;
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 6px 6px 0px rgba(76, 9, 0, 0.15);
+}
+
+.nav-btn-phases svg {
+    width: 32px;
+    height: 32px;
+}
+
+.nav-btn-phases:hover {
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 8px 8px 0px rgba(76, 9, 0, 0.2);
+    background: var(--red, #da3533);
+    color: white;
+    border-color: var(--red, #da3533);
+}
+
+.nav-btn-phases:active {
+    transform: translateY(-50%) translate(3px, 3px);
+    box-shadow: 0px 0px 0px rgba(76, 9, 0, 0);
+}
+
+.nav-btn-phases.prev {
+    left: 2vw;
+}
+
+.nav-btn-phases.next {
+    right: 2vw;
+}
+
+/* default display */
+.nav-btn-phases {
+    display: flex;
+}
+
+@media (max-width: 900px) {
+    .nav-btn-phases {
+        display: none !important;
+        /* hide arrows on mobile */
+    }
+}
+
+/* scroll container */
+.challenges-scroll-container {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    gap: 4vw;
+    padding: 0 5vw 3rem 5vw;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.challenges-scroll-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* base card */
+.phase-card {
+    flex: 0 0 92vw;
+    /* near full width for scroll hint */
+    scroll-snap-align: center;
+    border-radius: 32px;
+    position: relative;
+    overflow: hidden;
+    min-height: 380px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    border: 4px solid var(--dark, #4c0900);
+    padding: 3rem 4rem;
+}
+
+@media (min-width: 1024px) {
+    .phase-card {
+        flex: 0 0 75vw;
+        max-width: 1100px;
+        min-height: 380px;
+    }
+
+    .challenges-scroll-container {
+        padding: 0 8vw 3rem 8vw;
+    }
+
+    .nav-btn-phases.prev {
+        left: 3vw;
+    }
+
+    .nav-btn-phases.next {
+        right: 3vw;
+    }
+}
+
+.card-content {
+    flex: 1;
+    max-width: 50%;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.phase-number {
+    font-size: 1.4rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.phase-number::before {
+    content: '';
+    display: inline-block;
+    width: 40px;
+    height: 5px;
+    background: currentColor;
+    border-radius: 3px;
+}
+
+.card-title {
+    font-size: 3.8rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.card-desc {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    font-weight: 500;
+    opacity: 0.95;
+    max-width: 90%;
+}
+
+.card-action {
+    display: inline-flex;
+    align-items: center;
+    background: var(--dark, #4c0900);
+    color: white;
+    padding: 1.2rem 2.5rem;
+    border-radius: 50px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.2rem;
+    width: max-content;
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card-action:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+}
+
+.locked-btn {
+    cursor: not-allowed;
+    position: relative;
+}
+
+/* locked button states */
+.locked-btn:hover {
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* locked challenge tooltip */
+.locked-btn:hover::after {
+    content: "Hold up! The CTF hasn't started yet.";
+    position: absolute;
+    bottom: calc(100% + 15px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--dark, #4c0900);
+    color: white;
+    padding: 0.8rem 1.2rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    white-space: nowrap;
+    opacity: 1;
+    pointer-events: none;
+    z-index: 1000;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* little tooltip triangle */
+.locked-btn:hover::before {
+    content: "";
+    position: absolute;
+    bottom: calc(100% - 1px);
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 8px;
+    border-style: solid;
+    border-color: var(--dark, #4c0900) transparent transparent transparent;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.card-img {
+    width: 45%;
+    max-width: 450px;
+    position: absolute;
+    right: 2%;
+    bottom: -2%;
+    z-index: 1;
+}
+
+/* card color themes */
+
+/* card 1 - raccoon */
+.card-one {
+    background-color: var(--red, #da3533);
+    color: white;
+    background-image:
+        radial-gradient(circle at top right, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
+}
+
+.card-one .card-action {
+    background: white;
+    color: var(--red, #da3533);
+    box-shadow: 4px 4px 0px rgba(76, 9, 0, 0.3);
+}
+
+.card-one .card-action:hover {
+    background: var(--dark, #4c0900);
+    color: white;
+    box-shadow: 8px 8px 0px rgba(76, 9, 0, 0.4);
+}
+
+.raccoon-img {
+    filter: drop-shadow(0 20px 40px rgba(76, 9, 0, 0.3));
+    width: 55%;
+    max-width: 500px;
+    right: -2%;
+    bottom: -10%;
+}
+
+/* card 2 - chameleon */
+.card-two {
+    background: linear-gradient(135deg, #10b981 0%, #0ea5e9 100%);
+    /* chameleon gradient */
+    color: #f0fdfa;
+    border-color: #064e3b;
+}
+
+.card-two .phase-number,
+.card-two .card-title {
+    color: #fef08a;
+    /* yellow accent */
+}
+
+.card-two .card-desc {
+    color: #e0f2fe;
+}
+
+.card-two .card-action {
+    background: #fef08a;
+    color: #0f172a;
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2);
+}
+
+.card-two .card-action:hover {
+    background: #fff;
+    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.3);
+}
+
+/* smaller images for cards 2 and 4 */
+.card-two .card-img,
+.card-four .card-img {
+    width: 32%;
+    max-width: 320px;
+    right: 6%;
+    bottom: 5%;
+}
+
+/* card 3 - octopus */
+.card-three {
+    background-color: #fcebd7;
+    /* warm contrast */
+    background-image: linear-gradient(135deg, #f3f3f3 0%, #ffffff 100%);
+    color: #1d2445;
+    /* navy from octopus svg */
+    border-color: #1d2445;
+}
+
+.card-three .phase-number,
+.card-three .card-title {
+    color: #1d2445;
+}
+
+.card-three .card-desc {
+    color: #3b4261;
+}
+
+.card-three .card-action {
+    background: #1d2445;
+    color: #fff;
+    box-shadow: 4px 4px 0px rgba(29, 36, 69, 0.2);
+}
+
+.card-three .card-action:hover {
+    background: #fff;
+    color: #1d2445;
+    box-shadow: 8px 8px 0px rgba(29, 36, 69, 0.4);
+}
+
+.octopus-img {
+    max-width: 450px;
+    filter: drop-shadow(0 10px 20px rgba(29, 36, 69, 0.1));
+    bottom: 2%;
+    /* lifted positioning */
+}
+
+/* card 4 - creature */
+.card-four {
+    background-color: #ffd043;
+    color: #1c2a38;
+    border-color: #1c2a38;
+}
+
+.card-four .card-action {
+    background: #1c2a38;
+    color: white;
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2);
+}
+
+.card-four .card-action:hover {
+    background: white;
+    color: #1c2a38;
+    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.3);
+}
+
+.circle-halo {
+    position: absolute;
+    right: 8%;
+    top: 15%;
+    width: 320px;
+    height: 320px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    z-index: 1;
+    filter: blur(4px);
+}
+
+/* responsive overrides */
+@media (max-width: 900px) {
+    .phase-card {
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 3rem 2.5rem;
+    }
+
+    .card-content {
+        max-width: 100%;
+        width: 100%;
+        text-align: left;
+    }
+
+    .card-action {
+        align-self: flex-start;
+    }
+
+    .card-img {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        margin-top: 3rem;
+        align-self: center;
+        width: 80%;
+        max-width: 250px;
+    }
+
+    .raccoon-img {
+        max-width: 280px;
+        align-self: center;
+        margin-top: 2rem;
+    }
+
+    .circle-halo {
+        top: auto;
+        bottom: 15%;
+        right: 15%;
+        width: 200px;
+        height: 200px;
+    }
+
+    .card-title {
+        font-size: 2.8rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .section-title {
+        font-size: 2.4rem;
+        gap: 0.8rem;
+    }
+
+    .phase-highlight {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .phase-card {
+        padding: 2.5rem 1.5rem;
+        min-height: auto;
+    }
+
+    .card-title {
+        font-size: 2.3rem;
+    }
+
+    .card-desc {
+        font-size: 1.1rem;
+    }
+
+    .card-action {
+        font-size: 1.05rem;
+        padding: 1rem 1.5rem;
+    }
+
+    .raccoon-img,
+    .card-img {
+        max-width: 220px;
+        width: 85%;
+        margin-top: 2rem;
+    }
+}

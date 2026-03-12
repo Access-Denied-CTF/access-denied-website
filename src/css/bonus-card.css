@@ -1,0 +1,87 @@
+/* bonus section */
+.bonus-wrapper {
+    max-width: 1400px;
+    margin: 5rem auto 0;
+    padding: 0 10%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.bonus-card {
+    flex: none;
+    width: 100%;
+    scroll-snap-align: none;
+    min-height: auto;
+    background: linear-gradient(135deg, var(--red) 0%, #aa1e1c 100%);
+    box-shadow: 0 15px 35px rgba(218, 53, 51, 0.2);
+}
+
+.bonus-card .card-title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.bonus-card .card-desc {
+    font-size: 1.25rem;
+    color: #fff;
+    opacity: 0.9;
+}
+
+/* severity levels */
+.vuln-scopes {
+    background: var(--bg);
+    border: 3px solid var(--dark);
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    color: var(--dark);
+    font-size: 0.95rem;
+    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.05);
+}
+
+.vuln-scopes p {
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+}
+
+.vuln-scopes ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.vuln-scopes li {
+    line-height: 1.5;
+}
+
+/* severity colors */
+.vuln-critical {
+    color: #ef4444;
+    font-weight: 800;
+}
+
+.vuln-medium {
+    color: #f59e0b;
+    font-weight: 800;
+}
+
+.vuln-low {
+    color: #10b981;
+    font-weight: 800;
+}
+
+@media (max-width: 900px) {
+    .bonus-wrapper {
+        padding: 0 5%;
+    }
+
+    .bonus-card .card-content {
+        max-width: 100% !important;
+    }
+
+    .bonus-card {
+        box-shadow: 0 8px 20px rgba(218, 53, 51, 0.15);
+    }
+}

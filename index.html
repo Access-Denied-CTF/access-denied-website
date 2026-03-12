@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' https://scripts.simpleanalyticscdn.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src 'self' https://backend.access.denied.online; img-src 'self' https://api.dicebear.com https://queue.simpleanalyticscdn.com data:;">
+    <title>Access Denied? .... OR Maybe not? - CTF</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta name="description" content="Join our CTF competition: Access Denied? .... OR Maybe not?">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&family=Permanent+Marker&display=swap"
+        rel="stylesheet">
+    <!-- css -->
+    <link rel="stylesheet" href="src/css/base.css">
+    <link rel="stylesheet" href="src/css/nav.css">
+    <link rel="stylesheet" href="src/css/hero.css">
+    <link rel="stylesheet" href="src/css/about.css">
+    <link rel="stylesheet" href="src/css/footer.css">
+    <link rel="stylesheet" href="src/css/cards.css">
+    <link rel="stylesheet" href="src/css/bonus-card.css">
+    <link rel="stylesheet" href="src/css/roadmap.css">
+    <link rel="stylesheet" href="src/css/toast.css">
+</head>
+
+<body>
+    <!-- footprints -->
+    <div class="footprints-container" id="footprints"></div>
+
+    <nav class="navbar">
+        <div class="logo-wrapper">
+            <a href="#" class="logo-link">
+                <img src="AccessDeniedLogo.png" alt="Access Denied Logo" class="logo-img">
+            </a>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-btn active">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+                home
+            </a>
+            <a href="#phasesScroll" class="nav-btn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"></path>
+                    <path d="M12 12v9"></path>
+                    <path d="m8 17 4 4 4-4"></path>
+                </svg>
+                challenges
+            </a>
+            <a href="about.html" class="nav-btn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 16v-4"></path>
+                    <path d="M12 8h.01"></path>
+                </svg>
+                about
+            </a>
+            <a href="login.html" class="nav-btn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                </svg>
+                account
+            </a>
+        </div>
+    </nav>
+
+    <main class="hero">
+        <div class="hero-left">
+            <img src="racoon.png" alt="Raccoon Mascot" class="mascot" id="raccoon">
+        </div>
+
+        <div class="hero-right">
+            <h1 class="main-title">access<br>denied?</h1>
+            <h2 class="sub-title">.... OR Maybe not?</h2>
+
+            <div class="info-text">
+                <p><strong>you break</strong> the system rules&sup1;</p>
+                <p><strong>you claim</strong> the ultimate loot&sup2;</p>
+            </div>
+
+            <form class="signup-form" id="homeSignupForm">
+                <input type="email" placeholder="your email" required id="homeEmailInput">
+                <button type="submit" id="homeSubmitBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" id="homeSubmitIcon">
+                        <path d="m22 2-7 20-4-9-9-4Z" />
+                        <path d="M22 2 11 13" />
+                    </svg>
+                    <span id="homeSubmitText">start hacking</span>
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <section class="challenges-section">
+        <h2 class="section-title">
+            Discover the <span class="phase-highlight">PHASES</span> of our competition
+        </h2>
+
+        <div class="carousel-wrapper">
+            <button class="nav-btn-phases prev" id="btnPrev" aria-label="Previous Phase">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="m15 18-6-6 6-6" />
+                </svg>
+            </button>
+
+            <div class="challenges-scroll-container" id="phasesScroll">
+
+                <!-- phase 1 -->
+                <div class="phase-card card-one">
+                    <div class="card-content">
+                        <div class="phase-number">01</div>
+                        <h3 class="card-title">The Silent Thief</h3>
+                        <p class="card-desc">Access Denied? ... Good thing the window was open.</p>
+                        <a href="javascript:void(0)" class="card-action locked-btn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round"
+                                style="width: 1em; height: 1em; margin-right: 0.3em; margin-bottom: -0.1em;">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                            Locked
+                        </a>
+                    </div>
+                    <img src="images/Rac-2.png" alt="Raccoon Phase 1" class="card-img raccoon-img">
+                </div>
+
+                <!-- phase 2 -->
+                <div class="phase-card card-two">
+                    <div class="card-content">
+                        <div class="phase-number">02</div>
+                        <h3 class="card-title">The Perfect Imposter</h3>
+                        <p class="card-desc">Access Denied? ... But I’m wearing the right colors.</p>
+                        <a href="javascript:void(0)" class="card-action locked-btn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round"
+                                style="width: 1em; height: 1em; margin-right: 0.3em; margin-bottom: -0.1em;">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                            Locked
+                        </a>
+                    </div>
+                    <img src="images/surr-chameleon.svg" alt="Chameleon Phase 2" class="card-img">
+                </div>
+
+                <!-- phase 3 -->
+                <div class="phase-card card-three">
+                    <div class="card-content">
+                        <div class="phase-number">03</div>
+                        <h3 class="card-title">The Deep Threat</h3>
+                        <p class="card-desc">Access Denied? ... Slipping through the pipes.</p>
+                        <a href="javascript:void(0)" class="card-action locked-btn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round"
+                                style="width: 1em; height: 1em; margin-right: 0.3em; margin-bottom: -0.1em;">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                            Locked
+                        </a>
+                    </div>
+                    <img src="images/urban-line-octopus.svg" alt="Octopus Phase 3" class="card-img octopus-img">
+                </div>
+
+                <!-- phase 4 -->
+                <div class="phase-card card-four">
+                    <div class="card-content">
+                        <div class="phase-number">04</div>
+                        <h3 class="card-title">The System Ghost</h3>
+                        <p class="card-desc">Access Denied? ... I redefine the rules.</p>
+                        <a href="javascript:void(0)" class="card-action locked-btn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round"
+                                style="width: 1em; height: 1em; margin-right: 0.3em; margin-bottom: -0.1em;">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                            Locked
+                        </a>
+                    </div>
+                    <div class="circle-halo"></div>
+                    <img src="images/surr-creature-2.svg" alt="Creature Phase 4" class="card-img">
+                </div>
+
+            </div>
+
+            <button class="nav-btn-phases next" id="btnNext" aria-label="Next Phase">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="m9 18 6-6-6-6" />
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <section class="about-section" id="about">
+        <div class="about-container">
+            <div class="hero-right about-hero-text">
+                <h1 class="main-title">access<br>denied?</h1>
+                <h2 class="sub-title">.... OR Maybe not?</h2>
+
+                <div class="info-text">
+                    <p><strong>you break</strong> the system rules&sup1;</p>
+                    <p><strong>you claim</strong> the ultimate loot&sup2;</p>
+                </div>
+                <div class="footnotes" style="margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.6; line-height: 1.6;">
+                    <p>&sup1; no actual doors will be harmed.</p>
+                    <p>&sup2; if you don't get caught :)</p>
+                </div>
+            </div>
+
+            <div class="about-details">
+                <div class="detail-block">
+                    <h3>The Objective</h3>
+                    <p>This competition is created because we noticed many student projects and club websites heavily
+                        rely on Backend-as-a-Service (BaaS) platforms like
+                        <span class="inline-badge"><img src="images/BaaS/Firebase.png" alt="Firebase"> Firebase</span>,
+                        <span class="inline-badge"><img src="images/BaaS/AppWrite logo.png" alt="Appwrite">
+                            Appwrite</span>, and
+                        <span class="inline-badge"><img src="images/BaaS/supabase.png" alt="Supabase"> Supabase</span>.
+                    </p>
+                    <p style="margin-top: 0.6rem; font-size: 0.88em; opacity: 0.85;">
+                        ** This CTF is designed specifically for the hackers at
+                        <a href="https://stemassiut.tech" target="_blank" class="inline-badge"
+                            style="text-decoration: none;"><img src="images/Assiut STEM school logo-white.svg"
+                                alt="STEM" style="height: 1.3em;"> Assiut STEM School</a>!
+                    </p>
+                </div>
+                <div class="detail-block">
+                    <h3>The Experience</h3>
+                    <p>While powerful, these platforms often have critical security holes (like unauthorized admin
+                        access or full data exposure) if they are not secured properly.
+                        Here, you'll learn how to exploit these problems safely! All challenges are Appwrite-based, so
+                        their <a href="https://appwrite.io/docs" target="_blank"
+                            style="color: var(--dark); text-decoration: underline; font-weight: bold;">Docs</a> are your
+                        friend. Feel free to use free tools like
+                        <img src="images/services/Postman_(software).png"
+                            style="height: 1em; vertical-align: middle; margin: 0 0.2rem; transform: translateY(-1px);"
+                            alt="Postman">, Fiddler, Chrome Dev Tools, and of course, your trusty terminal :)
+                    </p>
+                </div>
+                <div class="detail-block">
+                    <h3>The Journey</h3>
+                    <p>Go solo or gather a team (max 3) from your <a href="account.html"
+                            style="color: var(--red); font-weight: bold; text-decoration: underline;">account page</a>.
+                        Phases must be completed in order. Phase 01 & 02 are heavily educational with hints, while 03 &
+                        04
+                        simulate brutal real-world logic errors. Oh, and the phase mascots? They aren't random... good
+                        luck figuring out that secret :) Check out the full
+                        <a href="rules.html"
+                            style="color: var(--red); font-weight: bold; text-decoration: underline;">Rules &
+                            Awards</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- prizes roadmap -->
+        <div class="roadmap-container">
+            <p class="roadmap-label">Rewards Roadmap</p>
+            <div class="roadmap-grid">
+                <!-- card 1 -->
+                <a href="rules.html" class="roadmap-card phase-1">
+                    <span class="roadmap-card-phase">PHASE 01</span>
+                    <span class="roadmap-card-title">Certificate + DataCamp</span>
+                    <span class="roadmap-card-desc">Participation cert + 6 months DataCamp with DataLab.</span>
+                </a>
+
+                <!-- card 2 -->
+                <a href="rules.html" class="roadmap-card phase-2">
+                    <div class="roadmap-card-content">
+                        <span class="roadmap-card-phase">PHASE 02</span>
+                        <span class="roadmap-card-title">Hidden (^-^*)</span>
+                        <span class="roadmap-card-desc">The prize shifts and changes like a chameleon.</span>
+                    </div>
+                </a>
+
+                <!-- card 3 -->
+                <a href="rules.html" class="roadmap-card phase-3">
+                    <span class="roadmap-card-phase">PHASE 03</span>
+                    <span class="roadmap-card-title">50 EGP + Domain</span>
+                    <span class="roadmap-card-desc">First 5 get cash and a .tech/.online standard domain (1
+                        Year).</span>
+                </a>
+
+                <!-- card 4 -->
+                <a href="rules.html" class="roadmap-card phase-4">
+                    <span class="roadmap-card-phase">PHASE 04</span>
+                    <span class="roadmap-card-title">1000 EGP</span>
+                    <span class="roadmap-card-desc">Grand prize for the first hacker or team to finish.</span>
+                </a>
+            </div>
+
+            <a href="rules.html" class="roadmap-link">See full Rules & Awards →</a>
+        </div>
+
+        <div class="bonus-wrapper">
+            <div class="phase-card bonus-card card-one" style="min-height: 280px;">
+                <div class="card-content" style="max-width: 60%;">
+                    <h3 class="card-title">You can also...</h3>
+                    <p class="card-desc">Submit a functional website project connected to a BaaS for review. If it
+                        demonstrates excellence and strong security (zero critical or medium vulnerabilities&sup3;), you
+                        will win a <strong>.tech domain for 1 year!</strong></p>
+                    <a href="javascript:void(0)" class="card-action locked-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round"
+                            style="width: 1em; height: 1em; margin-right: 0.3em; margin-bottom: -0.1em;">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                        Submit Project
+                    </a>
+                </div>
+                <img src="images/Rac-1.png" alt="Raccoon Reviewer" class="card-img raccoon-img"
+                    style="filter: drop-shadow(0 20px 40px rgba(76, 9, 0, 0.4)); transform: scaleX(-1);">
+            </div>
+
+            <div class="vuln-scopes">
+                <p><strong>&sup3; Vulnerability Scopes:</strong></p>
+                <ul>
+                    <li><span class="vuln-critical">Critical:</span> Allows full system compromise, data deletion, or
+                        unauthorized administrative access.</li>
+                    <li><span class="vuln-medium">Medium:</span> Interacts with sensitive user data, unauthorized
+                        modifications, or logic bypasses that impact functionality.</li>
+                    <li><span class="vuln-low">Harmless/Low:</span> Informational disclosures, missing minor headers, or
+                        visual glitches with no direct security impact.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <!-- scripts -->
+    <script type="module" src="src/js/script.js"></script>
+    <script type="module">
+        import { initNav } from './src/js/nav.js';
+        import { handleOAuthCallback } from './src/js/auth-flow.js';
+        import { initFooter } from './src/js/footer.js';
+        initNav();
+        handleOAuthCallback();
+        initFooter();
+    </script>
+    <!-- 100% privacy-first analytics -->
+    <!-- <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+    <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt=""
+            referrerpolicy="no-referrer-when-downgrade" /></noscript> -->
+</body>
+
+</html>

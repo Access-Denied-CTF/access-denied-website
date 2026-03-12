@@ -1,0 +1,332 @@
+/* timeline-style prizes */
+.prizes-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 2rem;
+    position: relative;
+}
+
+/* vertical timeline line */
+.prizes-timeline::before {
+    content: '';
+    position: absolute;
+    left: 28px;
+    top: 20px;
+    bottom: 20px;
+    width: 4px;
+    background: linear-gradient(180deg,
+            var(--red) 0%,
+            #10b981 30%,
+            #1d2445 60%,
+            #ffd043 100%);
+    background-size: 100% 200%;
+    animation: timelineShift 6s ease infinite alternate;
+    border-radius: 4px;
+    -webkit-mask-image: repeating-linear-gradient(180deg, var(--dark) 0px, var(--dark) 12px, transparent 12px, transparent 20px);
+    mask-image: repeating-linear-gradient(180deg, var(--dark) 0px, var(--dark) 12px, transparent 12px, transparent 20px);
+}
+
+@keyframes timelineShift {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    100% {
+        background-position: 0% 100%;
+    }
+}
+
+.prize-phase {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+    position: relative;
+}
+
+/* phase circle */
+.prize-phase-num {
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--dark);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 1.3rem;
+    z-index: 1;
+    box-shadow: 0 4px 12px rgba(76, 9, 0, 0.3);
+}
+
+/* phase 01 - red */
+.prize-phase:nth-child(1) .prize-phase-num {
+    background: var(--red);
+}
+
+/* phase 02 - mystery */
+.prize-phase:nth-child(2) .prize-phase-num {
+    background: var(--dark);
+    border: 3px dashed rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 12px rgba(218, 53, 51, 0.4), 0 0 24px rgba(218, 53, 51, 0.2);
+    animation: mysteryGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes mysteryGlow {
+    0% {
+        box-shadow: 0 0 8px rgba(218, 53, 51, 0.3), 0 0 20px rgba(218, 53, 51, 0.1);
+    }
+
+    100% {
+        box-shadow: 0 0 16px rgba(218, 53, 51, 0.6), 0 0 32px rgba(218, 53, 51, 0.3);
+    }
+}
+
+/* phase 03 - navy */
+.prize-phase:nth-child(3) .prize-phase-num {
+    background: #1d2445;
+    box-shadow: 0 4px 12px rgba(29, 36, 69, 0.4);
+}
+
+/* phase 04 - golden */
+.prize-phase:nth-child(4) .prize-phase-num {
+    background: #ffd043;
+    color: #1c2a38;
+    box-shadow: 0 4px 12px rgba(255, 208, 67, 0.5);
+}
+
+/* prize card base */
+.prize-body {
+    flex: 1;
+    border-radius: 16px;
+    padding: 1.2rem 1.5rem;
+    border: 3px solid var(--dark);
+    box-shadow: 5px 5px 0px var(--dark);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.prize-body:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 7px 7px 0px var(--dark);
+}
+
+.prize-body h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.4rem;
+}
+
+.prize-body p {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin-bottom: 0.3rem;
+}
+
+/* card 1 - raccoon */
+.prize-card-one {
+    background-color: var(--red);
+    background-image: radial-gradient(circle at top right, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
+    color: white;
+}
+
+.prize-card-one h3 {
+    color: white;
+}
+
+.prize-card-one p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.prize-card-one .inline-badge {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* card 2 - mystery */
+.prize-body.mystery-card {
+    background: repeating-linear-gradient(-45deg,
+            var(--dark),
+            var(--dark) 10px,
+            #3a0700 10px,
+            #3a0700 20px);
+    border-style: dashed;
+    border-color: var(--dark);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 5px 5px 0px var(--dark), 0 0 20px rgba(218, 53, 51, 0.2);
+    animation: cardMysteryGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes cardMysteryGlow {
+    0% {
+        box-shadow: 5px 5px 0px var(--dark), 0 0 10px rgba(218, 53, 51, 0.15);
+    }
+
+    100% {
+        box-shadow: 5px 5px 0px var(--dark), 0 0 25px rgba(218, 53, 51, 0.4);
+    }
+}
+
+.prize-body.mystery-card::before {
+    content: '?';
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 7rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.08);
+    pointer-events: none;
+    line-height: 1;
+}
+
+.prize-body.mystery-card h3 {
+    color: white;
+}
+
+.prize-body.mystery-card p {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* card 3 - octopus */
+.prize-card-three {
+    background: linear-gradient(135deg, #f3f3f3 0%, #ffffff 100%);
+    border-color: #1d2445;
+    box-shadow: 5px 5px 0px #1d2445;
+    color: #1d2445;
+}
+
+.prize-card-three:hover {
+    box-shadow: 7px 7px 0px #1d2445;
+}
+
+.prize-card-three h3 {
+    color: #1d2445;
+}
+
+.prize-card-three p {
+    color: #3b4261;
+}
+
+/* card 4 - creature */
+.prize-card-four {
+    background-color: #ffd043;
+    border-color: #1c2a38;
+    box-shadow: 5px 5px 0px #1c2a38;
+    color: #1c2a38;
+}
+
+.prize-card-four:hover {
+    box-shadow: 7px 7px 0px #1c2a38;
+}
+
+.prize-card-four h3 {
+    color: #1c2a38;
+}
+
+.prize-card-four p {
+    color: #1c2a38;
+}
+
+.prize-body .prize-detail {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.prize-body .prize-detail img {
+    height: 28px;
+    border-radius: 4px;
+}
+
+/* side quest card */
+.side-quest-card {
+    margin-top: 2.5rem;
+    background: white;
+    border: 3px solid #f9a825;
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    box-shadow: 5px 5px 0px #f9a825;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.side-quest-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 7px 7px 0px #f9a825;
+}
+
+.side-quest-card h3 {
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: #f9a825;
+    margin-bottom: 0.5rem;
+}
+
+/* rules list */
+.rules-list {
+    list-style: none;
+    padding: 0;
+}
+
+.rules-list li {
+    position: relative;
+    padding: 0.6rem 0 0.6rem 1.5rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    word-break: break-word;
+    /* word overflow */
+}
+
+.rules-list li:last-child {
+    border-bottom: none;
+}
+
+.rules-list li::before {
+    content: '>';
+    position: absolute;
+    left: 0;
+    font-weight: 900;
+    color: var(--red);
+}
+
+@media (max-width: 600px) {
+    .prizes-timeline::before {
+        left: 20px;
+    }
+
+    .prize-phase-num {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .prize-phase {
+        gap: 0.8rem;
+    }
+
+    .prize-body {
+        padding: 1rem;
+        box-shadow: 4px 4px 0px var(--dark);
+        border-width: 2px;
+    }
+
+    .prize-card-three {
+        box-shadow: 4px 4px 0px #1d2445;
+    }
+
+    .prize-card-four {
+        box-shadow: 4px 4px 0px #1c2a38;
+    }
+
+    .prize-body.mystery-card {
+        box-shadow: 4px 4px 0px var(--dark), 0 0 15px rgba(218, 53, 51, 0.2);
+    }
+
+    .side-quest-card {
+        padding: 1.2rem;
+        box-shadow: 4px 4px 0px #f9a825;
+    }
+}
