@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <a href="https://access.denied.online">access.denied.online</a>
+  <a href="https://access.denied.online">This is the public version of access.denied.online</a>
 </p>
 
 ---
