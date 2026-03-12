@@ -76,7 +76,7 @@ The competition contains 4 main phases and a sub-event for students to submit op
 <p align="center">
   <strong>Supported by</strong>
   <br><br>
-  <a href="https://metrloom.com">
+  <a href="https://metrloom.tech">
     <img src="images/RAEDME/MetrLoomLOGO.png" alt="Metrloom" width="100%">
   </a>
 </p>
